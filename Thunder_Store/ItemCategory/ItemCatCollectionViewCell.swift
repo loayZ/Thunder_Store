@@ -14,7 +14,6 @@ class ItemCatCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var ItemImg: UIImageView!
     @IBOutlet weak var ItemLbl: UILabel!
     @IBOutlet weak var ItemPrice: UILabel!
-    
     @IBOutlet weak var FavButt: UIButton!
     func setText(){
         FavButt.setTitle("", for: .normal)
@@ -23,8 +22,7 @@ class ItemCatCollectionViewCell: UICollectionViewCell {
         ItemImg.image = itemcat.image
         ItemLbl.text = itemcat.title
         ItemPrice.text = itemcat.price
-        
-        
+
     }
     
 }

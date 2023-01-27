@@ -14,11 +14,19 @@ class ItemCatViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
 
     @IBOutlet weak var titleLbl: UILabel!
+    
+    @IBOutlet weak var backButt: UIButton!
+    
+    @IBAction func backButton(_ sender: Any) {
+    
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         titleLbl.text = passLblData
-        
+        backButt.setTitle("", for: .normal)
         collectionView.dataSource = self
         collectionView.delegate = self
        collectionView.collectionViewLayout = UICollectionViewFlowLayout()

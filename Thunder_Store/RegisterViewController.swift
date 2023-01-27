@@ -21,6 +21,7 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var repassword: UITextField!
     @IBAction func registerButton(_ sender: UIButton) {
         if email.text?.isEmpty == true{
             print("No text in email field")
@@ -28,6 +29,11 @@ class RegisterViewController: UIViewController {
         }
         if password.text?.isEmpty == true{
             print("No text in password field")
+            return
+        }
+        
+        if password.text != repassword.text{
+            print("password not match")
             return
         }
         

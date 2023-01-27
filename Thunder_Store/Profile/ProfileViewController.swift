@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -39,7 +39,10 @@ extension ProfileViewController : UICollectionViewDataSource {
 extension ProfileViewController : UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width : 320, height : 30)
+        let availableWidth = (UIScreen.main.bounds.width) - 18
+        return CGSize(width: availableWidth, height: 40)
+        
+        //return CGSize(width : 320, height : 30)
     }
    
 }
@@ -48,7 +51,28 @@ extension ProfileViewController : UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(profileLinkItems[indexPath.row].title)
-    }
+        if (profileLinkItems[indexPath.row].title == "SignOut"){
+            
+            print("Im here!")
+            do {try Auth.auth().signOut()
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(identifier: "login")
+                vc.modalPresentationStyle = .overFullScreen
+                present(vc, animated : true)
+            }
+            catch {print("Error")}
+            
+            }
+        
+        if (profileLinkItems[indexPath.row].title == "Favourites"){
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(identifier: "Fav")
+            vc.modalPresentationStyle = .currentContext
+            present(vc, animated : true)
+        }
+            
+        }
 }
 
 

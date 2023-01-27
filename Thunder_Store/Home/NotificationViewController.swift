@@ -1,13 +1,13 @@
 //
-//  CartViewController.swift
+//  NotificationViewController.swift
 //  Thunder_Store
 //
-//  Created by loay on 19/01/2023.
+//  Created by loay on 26/01/2023.
 //
 
 import UIKit
 
-class CartViewController: UIViewController {
+class NotificationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

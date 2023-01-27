@@ -17,6 +17,7 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var staticlogo: UIImageView!
   */
     
+    
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var title: UILabel!
     
