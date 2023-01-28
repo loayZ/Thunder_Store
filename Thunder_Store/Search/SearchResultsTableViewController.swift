@@ -67,9 +67,9 @@ class SearchResultsTableViewController: UITableViewController {
         
         cell.titleLabel.text = searchResults[indexPath.row]["title"].stringValue
         
-        cell.descriptionLabel.text = searchResults[indexPath.row]["terms"]["description"][0].string
+        cell.descriptionLabel.text = "Price: \(searchResults[indexPath.row]["price"].stringValue)"
         
-        if let url = searchResults[indexPath.row]["thumbnail"]["source"].string {
+        if let url = searchResults[indexPath.row]["images"][0].string {
             apiFetcher.fetchImage(url: url, completionHandler: { image, _ in
                 cell.ImageView.image = image
             })

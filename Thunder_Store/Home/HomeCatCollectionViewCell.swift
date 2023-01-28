@@ -21,4 +21,9 @@ class HomeCatCollectionViewCell: UICollectionViewCell {
         HomeMovieImageView.image = homecat.image
         HomeTitleLbl.text = homecat.title
     }
+    
+    func setup(with articles: Article) {
+        HomeMovieImageView.image =  #imageLiteral(resourceName: "icons8-home-page-30")
+        HomeTitleLbl.text = articles.title
+    }
 }

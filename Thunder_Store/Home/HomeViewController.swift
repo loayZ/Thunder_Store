@@ -13,6 +13,10 @@ class HomeViewController: UIViewController{
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    
+    // MARK: API
+    var articles=[Article(title:"",description:"")]
+    
     //MARK: Upper icons
     
     @IBOutlet weak var notification: UIButton!
@@ -51,13 +55,15 @@ class HomeViewController: UIViewController{
         vc.modalPresentationStyle = .currentContext
         present(vc, animated : true)
     }
+    // MARK: API
+    var newsAPI = NewsApi()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //MARK: upper icons
       notification.setTitle("", for: .normal)
-     
+        
         initCollectionVC()
         
        
@@ -76,6 +82,11 @@ class HomeViewController: UIViewController{
         slideshow.delegate = self
         
         slideshow.setImageInputs(ImgSlide())
+        
+        // MARK: API
+        
+        newsAPI.delegate=self
+          newsAPI.fetchNews()
         
           }
    
@@ -119,7 +130,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(collectionView == self.collectionView){
-            return homecats.count
+            return articles.count
         }
         else if(collectionView == ItemcollectionView){
             return itemcats.count
@@ -137,7 +148,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
         
         if(collectionView == self.collectionView){
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCatCollectionViewCell", for: indexPath) as! HomeCatCollectionViewCell
-            cell.setup(with: homecats[indexPath.row])
+            cell.setup(with: articles[indexPath.row])
             return cell
             
         }else if (collectionView == ItemcollectionView){
@@ -172,7 +183,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
 //===========================================================================================
 extension HomeViewController: UICollectionViewDelegate {
 func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+    /*
     var Lbldata = homecats[indexPath.row].title
 
     print(homecats[indexPath.row].title)
@@ -182,7 +193,25 @@ func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPat
     vc.modalPresentationStyle = .overFullScreen
     vc.passLblData = Lbldata
     present(vc, animated : true)
-}
+*/
+     }
 }
 
 
+extension HomeViewController:NewsAPIDelegate{
+
+    func didFetchPosts(posts: Posts) {
+        print(posts)
+        
+        articles=posts.products
+        DispatchQueue.main.async{
+            self.collectionView.reloadData()
+        }
+        collectionView.reloadData()
+        
+    }
+    
+    func didFailWithError(error: Error?) {
+        print(error!)
+    }
+}
