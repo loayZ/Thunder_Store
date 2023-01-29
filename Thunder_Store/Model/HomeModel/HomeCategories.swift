@@ -7,6 +7,47 @@
 
 import Foundation
 
+struct HomeCategories : Decodable {
+
+     
+      let total    : Int?
+      let limit    : Int?
+      let skip     : Int?
+      let products : [Product]
+    
+}
+
+struct Product : Decodable{
+    
+    
+      let id    : Int?
+      let title : String?
+      let price : Int?
+     //  let images : [String]?
+    
+}
+
+struct TopSelling : Decodable {
+
+     
+      let total    : Int?
+      let limit    : Int?
+      let skip     : Int?
+      let products : [Product]
+    
+}
+
+struct Product2 : Decodable{
+    
+    
+      let id    : Int?
+      let title : String?
+      let price : Int?
+     //  let images : [String]?
+    
+}
+
+
 struct Posts:Decodable {
     
     let total: Int

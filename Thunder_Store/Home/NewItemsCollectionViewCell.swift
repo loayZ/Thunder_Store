@@ -25,4 +25,11 @@ class NewItemsCollectionViewCell: UICollectionViewCell {
         ItemPrice.text = itemcat.price
 
     }
+    func setup(with products: Product) {
+        ItemImg.image =  #imageLiteral(resourceName: "icons8-shopping-cart-30")
+        ItemLbl.text = products.title
+        var convertString : String = String(products.price ?? 0)
+        ItemPrice.text = convertString
+    }
 }
+

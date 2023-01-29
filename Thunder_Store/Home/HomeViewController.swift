@@ -16,7 +16,8 @@ class HomeViewController: UIViewController{
     
     // MARK: API
     var articles=[Article(title:"",description:"")]
-    
+    var products=[Product(id: 0, title: "", price: 0)]
+   // var products2=[Product2(id: 0, title: "", price: 0)]
     //MARK: Upper icons
     
     @IBOutlet weak var notification: UIButton!
@@ -57,10 +58,11 @@ class HomeViewController: UIViewController{
     }
     // MARK: API
     var newsAPI = NewsApi()
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         //MARK: upper icons
       notification.setTitle("", for: .normal)
         
@@ -87,6 +89,8 @@ class HomeViewController: UIViewController{
         
         newsAPI.delegate=self
           newsAPI.fetchNews()
+        newsAPI.fetchNewItems()
+        newsAPI.fetchTopSelling()
         
           }
    
@@ -133,10 +137,10 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
             return articles.count
         }
         else if(collectionView == ItemcollectionView){
-            return itemcats.count
+            return products.count
         }
         else{
-            return itemcats.count
+            return products.count
         }
         
 
@@ -154,14 +158,14 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
         }else if (collectionView == ItemcollectionView){
             
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewItemsCollectionViewCell", for: indexPath) as! NewItemsCollectionViewCell
-            cell.setup(with: itemcats[indexPath.row])
+            cell.setup(with: products[indexPath.row])
             cell.setText()
             return cell
             
         }
         else{
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopSellingCollectionViewCell", for: indexPath) as! TopSellingCollectionViewCell
-            cell.setup(with: itemcats[indexPath.row])
+            cell.setup(with: products[indexPath.row])
             cell.setText()
             return cell
         }
@@ -195,10 +199,33 @@ func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPat
     present(vc, animated : true)
 */
      }
+     
 }
 
 
 extension HomeViewController:NewsAPIDelegate{
+    
+    
+    func didFetchNewItems(homeCategories: HomeCategories) {
+        print(homeCategories)
+        
+        products=homeCategories.products
+        DispatchQueue.main.async{
+            self.ItemcollectionView.reloadData()
+        }
+        ItemcollectionView.reloadData()
+    }
+    
+    func didFetchTopSelling(topSelling: TopSelling) {
+        print(topSelling)
+        
+        products=topSelling.products
+        DispatchQueue.main.async{
+            self.topsellingCollectionView.reloadData()
+        }
+        topsellingCollectionView.reloadData()
+    }
+    
 
     func didFetchPosts(posts: Posts) {
         print(posts)

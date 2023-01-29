@@ -1,15 +1,10 @@
-//
-//  APIRequest.swift
-//  Thunder_Store
-//
-//  Created by loay on 28/01/2023.
-//
-
 import Foundation
 
 
 protocol NewsAPIDelegate  {
     func  didFetchPosts(posts: Posts)
+    func  didFetchNewItems(homeCategories: HomeCategories)
+    func  didFetchTopSelling(topSelling: TopSelling)
     func didFailWithError (error : Error?)
     
 }
@@ -19,8 +14,6 @@ struct NewsApi {
 
 func fetchNews ()
     {
-       // let urlString = "https://newsapi.org/v2/top-headlines?sources=google-news-sa&apiKey=6a79432ba1384bf08e4ca8cdd95a2c0c"
-         
 
         let urlString = "https://dummyjson.com/products/category/smartphones"
     let url=URL(string : urlString)
@@ -55,5 +48,80 @@ func fetchNews ()
 
 
     }
+    
+    func fetchNewItems ()
+        {
+          
+            let urlString = "https://dummyjson.com/products?limit=10&skip=10&select=title,price"
+        let url=URL(string : urlString)
+
+        let urlSession=URLSession(configuration: .default)
+                  
+        let task=urlSession.dataTask(with: url!)
+        {
+            (data, urlResponse, error) in
+            
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            else
+            {
+            print(data)
+                do {
+                    let thisposts = try JSONDecoder().decode(HomeCategories.self, from: data!)
+                   
+                    delegate?.didFetchNewItems(homeCategories: thisposts)
+                    
+                }
+                catch
+                {
+                    print(error)
+                }
+                
+            }
+            
+        }
+        task.resume()
+
+
+        }
+    
+    func fetchTopSelling ()
+        {
+          
+            let urlString = "https://dummyjson.com/products?limit=20&skip=20&select=title,price"
+        let url=URL(string : urlString)
+
+        let urlSession=URLSession(configuration: .default)
+                  
+        let task=urlSession.dataTask(with: url!)
+        {
+            (data, urlResponse, error) in
+            
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            else
+            {
+            print(data)
+                do {
+                    let thisposts = try JSONDecoder().decode(TopSelling.self, from: data!)
+                   
+                    delegate?.didFetchTopSelling(topSelling: thisposts)
+                    
+                }
+                catch
+                {
+                    print(error)
+                }
+                
+            }
+            
+        }
+        task.resume()
+
+
+        }
+    
 
 }

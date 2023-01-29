@@ -214,8 +214,8 @@
 				C6245B0F2976E7010025F87E /* HomeViewController.swift */,
 				C657B6C12981E779002FEE17 /* NotificationViewController.swift */,
 				C6245B0E2976E7000025F87E /* HomeCatCollectionViewCell.swift */,
-				C6B7CF52298170BF00B4B1A0 /* TopSellingCollectionViewCell.swift */,
 				C6B7CF50298163FE00B4B1A0 /* NewItemsCollectionViewCell.swift */,
+				C6B7CF52298170BF00B4B1A0 /* TopSellingCollectionViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
