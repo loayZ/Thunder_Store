@@ -1,10 +1,13 @@
 import Foundation
 
 
+
+
 protocol NewsAPIDelegate  {
     func  didFetchPosts(posts: Posts)
     func  didFetchNewItems(homeCategories: HomeCategories)
     func  didFetchTopSelling(topSelling: TopSelling)
+
     func didFailWithError (error : Error?)
     
 }
@@ -123,5 +126,6 @@ func fetchNews ()
 
         }
     
-
+    
+    
 }

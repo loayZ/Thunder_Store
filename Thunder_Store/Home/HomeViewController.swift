@@ -17,7 +17,7 @@ class HomeViewController: UIViewController{
     // MARK: API
     var articles=[Article(title:"",description:"")]
     var products=[Product(id: 0, title: "", price: 0)]
-   // var products2=[Product2(id: 0, title: "", price: 0)]
+    var myproducts=[Product2(id: 0, title: "", price: 0)]
     //MARK: Upper icons
     
     @IBOutlet weak var notification: UIButton!
@@ -140,7 +140,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
             return products.count
         }
         else{
-            return products.count
+            return myproducts.count
         }
         
 
@@ -165,7 +165,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
         }
         else{
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopSellingCollectionViewCell", for: indexPath) as! TopSellingCollectionViewCell
-            cell.setup(with: products[indexPath.row])
+            cell.setup(with: myproducts[indexPath.row])
             cell.setText()
             return cell
         }
@@ -187,17 +187,38 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
 //===========================================================================================
 extension HomeViewController: UICollectionViewDelegate {
 func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    /*
-    var Lbldata = homecats[indexPath.row].title
-
-    print(homecats[indexPath.row].title)
+  
+    if (collectionView == ItemcollectionView){
+        
+        var Lbldata = products[indexPath.row].title
+        var Iddata = products[indexPath.row].id
+        print(homecats[indexPath.row].title)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
+        vc.modalPresentationStyle = .overFullScreen
+        vc.passLblData = Lbldata ?? ""
+        vc.passId = Iddata ?? 0
+        present(vc, animated : true)
+        
+       /*
+        var Lbldata = products[indexPath.row].title
+        var Iddata = products[indexPath.row].id
+        print(homecats[indexPath.row].title)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "Item") as! ItemCatViewController
+        vc.modalPresentationStyle = .overFullScreen
+        vc.passLblData = Lbldata ?? ""
+        vc.passId = Iddata ?? 0
+        present(vc, animated : true)
+  
+        */
+        
+    }
     
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let vc = storyboard.instantiateViewController(identifier: "Item") as! ItemCatViewController
-    vc.modalPresentationStyle = .overFullScreen
-    vc.passLblData = Lbldata
-    present(vc, animated : true)
-*/
+    
+   
      }
      
 }
@@ -211,19 +232,19 @@ extension HomeViewController:NewsAPIDelegate{
         
         products=homeCategories.products
         DispatchQueue.main.async{
-            self.ItemcollectionView.reloadData()
+           // self.ItemcollectionView.reloadData()
         }
-        ItemcollectionView.reloadData()
+       // ItemcollectionView.reloadData()
     }
     
     func didFetchTopSelling(topSelling: TopSelling) {
         print(topSelling)
         
-        products=topSelling.products
+        myproducts=topSelling.products
         DispatchQueue.main.async{
-            self.topsellingCollectionView.reloadData()
+            //self.topsellingCollectionView.reloadData()
         }
-        topsellingCollectionView.reloadData()
+        //topsellingCollectionView.reloadData()
     }
     
 
@@ -232,9 +253,9 @@ extension HomeViewController:NewsAPIDelegate{
         
         articles=posts.products
         DispatchQueue.main.async{
-            self.collectionView.reloadData()
+           // self.collectionView.reloadData()
         }
-        collectionView.reloadData()
+      //  collectionView.reloadData()
         
     }
     

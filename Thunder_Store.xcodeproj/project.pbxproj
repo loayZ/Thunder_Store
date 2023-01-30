@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3341D4627B765A38D9E8EBF9 /* Pods_Thunder_Store.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A3964FED470AEFE5441E773 /* Pods_Thunder_Store.framework */; };
 		C6155F9129773E7F00EC7E86 /* ItemCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6155F9029773E7F00EC7E86 /* ItemCatViewController.swift */; };
+		C61582832987D5290006678C /* APIItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61582822987D5290006678C /* APIItems.swift */; };
 		C6245B0A2976E59D0025F87E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6245B082976E59C0025F87E /* LoginViewController.swift */; };
 		C6245B0B2976E59D0025F87E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6245B092976E59D0025F87E /* RegisterViewController.swift */; };
 		C6245B122976E7050025F87E /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6245B0C2976E6FD0025F87E /* ProfileCollectionViewCell.swift */; };
@@ -51,6 +52,7 @@
 		45D33DE9013B6311A9293E4D /* Pods-Thunder_Store.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thunder_Store.release.xcconfig"; path = "Target Support Files/Pods-Thunder_Store/Pods-Thunder_Store.release.xcconfig"; sourceTree = "<group>"; };
 		7A3964FED470AEFE5441E773 /* Pods_Thunder_Store.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thunder_Store.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6155F9029773E7F00EC7E86 /* ItemCatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCatViewController.swift; sourceTree = "<group>"; };
+		C61582822987D5290006678C /* APIItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIItems.swift; sourceTree = "<group>"; };
 		C6245B082976E59C0025F87E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C6245B092976E59D0025F87E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C6245B0C2976E6FD0025F87E /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				C6245B222976E8F50025F87E /* Model */,
 				C63316DB297454F600EC5877 /* Main.storyboard */,
 				C6DE307B298517CC003ED43D /* APIRequest.swift */,
+				C61582822987D5290006678C /* APIItems.swift */,
 				C63316DE297454FA00EC5877 /* Assets.xcassets */,
 				C63316E0297454FA00EC5877 /* LaunchScreen.storyboard */,
 				C63316E3297454FA00EC5877 /* Info.plist */,
@@ -385,6 +388,7 @@
 				C68B01FF2976F8E3002B3533 /* OnBoardingHand.swift in Sources */,
 				C6963ADD297976FD00A40A63 /* CartCollectionViewCell.swift in Sources */,
 				C68B45D02983241A00D00901 /* SearchResultsTableViewController.swift in Sources */,
+				C61582832987D5290006678C /* APIItems.swift in Sources */,
 				C6B7A8A729781FEB006E440E /* CategoriesViewController.swift in Sources */,
 				C6245B0B2976E59D0025F87E /* RegisterViewController.swift in Sources */,
 				C6245B172976E7050025F87E /* ProfileViewController.swift in Sources */,

@@ -10,6 +10,10 @@ import UIKit
 class ItemCatViewController: UIViewController {
     
     var passLblData : String = ""
+    var passId : Int = 0
+    
+    
+    
     
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -24,8 +28,10 @@ class ItemCatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
-        titleLbl.text = passLblData
+        
+        titleLbl.text = "\(passLblData)  \(String(passId))"
         backButt.setTitle("", for: .normal)
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -61,3 +67,5 @@ extension ItemCatViewController : UICollectionViewDelegate{
         print(itemcats[indexPath.row].title)
     }
 }
+
+

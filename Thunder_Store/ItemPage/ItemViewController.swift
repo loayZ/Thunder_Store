@@ -10,14 +10,41 @@ import ImageSlideshow
 
 class ItemViewController: UIViewController {
 
+    
+    var passLblData : String = ""
+    var passId : Int = 0
+    var items=[Items(id: 0, title: "",description: "", price: 0)]
+    
     @IBOutlet weak var slideshow: ImageSlideshow!
     
     @IBOutlet weak var favButt: UIButton!
     
     @IBOutlet weak var backButt: UIButton!
+    
+    
+    @IBOutlet weak var titleLbl: UILabel!
+    
+    @IBOutlet weak var priceLbl: UILabel!
+    
+    
+    @IBOutlet weak var descriptionTxtV: UITextView!
+    
+    
+    func setup(with items: Items) {
+        titleLbl.text = items.title
+        var convertString : String = String(items.price ?? 0)
+        priceLbl.text = convertString
+        var id = items.id
+        descriptionTxtV.text = items.description
+        
+    }
+    var API = Itemdata()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getItemId = passId
+        
+        //titleLbl.text = "\(passLblData)  \(String(passId))"
+       // titleLbl.text = items
         backButt.setTitle("", for: .normal)
         favButt.setTitle("", for: .normal)
         slideshow.slideshowInterval = 5.0
@@ -37,7 +64,9 @@ class ItemViewController: UIViewController {
         
          let recognizer = UITapGestureRecognizer(target: self, action: #selector(ItemViewController.didTap))
             slideshow.addGestureRecognizer(recognizer)
-
+        API.delegate=self
+        API.fetchItem()
+        
     }
     @objc func didTap() {
         let fullScreenController = slideshow.presentFullScreenController(from: self)
@@ -51,4 +80,23 @@ extension ItemViewController: ImageSlideshowDelegate {
         print("current page:", page)
        
     }
+}
+
+extension ItemViewController : ItemdataDelegate {
+    func didFetchItem(item: Items) {
+        print(item)
+        
+        
+        titleLbl.text = item.title
+        var convertString : String = String(item.price ?? 0)
+        priceLbl.text = convertString
+        descriptionTxtV.text = item.description
+    
+        }
+    
+    func didFailWithError(error: Error?) {
+        print(error!)
+    }
+    
+    
 }

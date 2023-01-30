@@ -30,6 +30,7 @@ class NewItemsCollectionViewCell: UICollectionViewCell {
         ItemLbl.text = products.title
         var convertString : String = String(products.price ?? 0)
         ItemPrice.text = convertString
+        var Id = products.id
     }
 }
 
