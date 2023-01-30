@@ -31,5 +31,6 @@ class TopSellingCollectionViewCell: UICollectionViewCell {
         var convertString : String = String(products.price ?? 0)
         ItemPrice.text = convertString
         var Id = products.id
+    
     }
 }

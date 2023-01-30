@@ -17,6 +17,27 @@ struct HomeCategories : Decodable {
     
 }
 
+
+
+struct Product : Decodable{
+    
+    
+      let id    : Int?
+      let title : String?
+      let price : Int?
+    //  let images : [productImg]?
+    
+}
+
+struct productImg : Decodable{
+    
+    let img1 : String?
+    let img2 : String?
+    let img3 : String?
+    let img4 : String?
+    let img5 : String?
+    
+}
 struct TopSelling : Decodable {
 
      
@@ -27,39 +48,29 @@ struct TopSelling : Decodable {
     
 }
 
-struct Product : Decodable{
-    
-    
-      let id    : Int?
-      let title : String?
-      let price : Int?
-     //  let images : [String]?
-    
-}
-
-
 struct Product2 : Decodable{
     
     
       let id    : Int?
       let title : String?
       let price : Int?
-     //  let images : [String]?
+     // let images : [String]?
     
 }
-struct Items: Codable {
+struct Items: Decodable {
     
-    var id                 : Int?
-    var title              : String?
-    var description        : String?   
-    var price              : Int?
+    let id                 : Int?
+    let title              : String?
+    let description        : String?
+    let price              : Int?
+    //let images             : [productImg]?
    /* var discountPercentage : Double?
     var rating             : Double?
     var stock              : Int?
     var brand              : String?
     var category           : String?
     var thumbnail          : String?
-    var images             : [String]?
+   
     */
 }
 /////////////////////////////////////////////////////////////////////////////

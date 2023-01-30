@@ -84,9 +84,9 @@ extension ItemViewController: ImageSlideshowDelegate {
 
 extension ItemViewController : ItemdataDelegate {
     func didFetchItem(item: Items) {
-        print(item)
+       // print(item.images?[0])
         
-        
+        //titleLbl.text = item.images[]
         titleLbl.text = item.title
         var convertString : String = String(item.price ?? 0)
         priceLbl.text = convertString

@@ -19,14 +19,12 @@ class NewItemsCollectionViewCell: UICollectionViewCell {
     func setText(){
         FavButt.setTitle("", for: .normal)
     }
-    func setup(with itemcat: ItemCat) {
-        ItemImg.image = itemcat.image
-        ItemLbl.text = itemcat.title
-        ItemPrice.text = itemcat.price
-
+    func setup(with productimg: productImg) {
+        //ItemImg.image = productimg.img1
+    print(productimg.img1)
     }
     func setup(with products: Product) {
-        ItemImg.image =  #imageLiteral(resourceName: "icons8-shopping-cart-30")
+        ItemImg.image =  #imageLiteral(resourceName: "icons8-list-view-30 ")
         ItemLbl.text = products.title
         var convertString : String = String(products.price ?? 0)
         ItemPrice.text = convertString
