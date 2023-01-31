@@ -24,5 +24,11 @@ class ItemCatCollectionViewCell: UICollectionViewCell {
         ItemPrice.text = itemcat.price
 
     }
+    func setup(with products: Product3) {
+        ItemLbl.text = products.title
+        var convertString : String = String(products.price ?? 0)
+        ItemPrice.text = convertString
+
+    }
     
 }

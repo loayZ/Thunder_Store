@@ -134,7 +134,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(collectionView == self.collectionView){
-            return articles.count
+            return homecats.count
         }
         else if(collectionView == ItemcollectionView){
             return products.count
@@ -152,7 +152,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
         
         if(collectionView == self.collectionView){
             var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCatCollectionViewCell", for: indexPath) as! HomeCatCollectionViewCell
-            cell.setup(with: articles[indexPath.row])
+            cell.setup(with: homecats[indexPath.row])
             return cell
             
         }else if (collectionView == ItemcollectionView){
@@ -188,6 +188,23 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
 extension HomeViewController: UICollectionViewDelegate {
 func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
   
+    if (collectionView == self.collectionView){
+          
+          let Catname = homecats[indexPath.row].title
+          
+          let storyboard = UIStoryboard(name: "Main", bundle: nil)
+          let vc = storyboard.instantiateViewController(identifier: "Item") as! ItemCatViewController
+          vc.modalPresentationStyle = .overFullScreen
+          vc.passCat = Catname
+          present(vc, animated : true)
+          
+      }
+
+    
+    
+    
+    
+    
     if (collectionView == ItemcollectionView){
         
         var Lbldata = products[indexPath.row].title
@@ -201,26 +218,10 @@ func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPat
         vc.passId = Iddata ?? 0
         present(vc, animated : true)
         
-       /*
-        var Lbldata = products[indexPath.row].title
-        var Iddata = products[indexPath.row].id
-        print(homecats[indexPath.row].title)
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(identifier: "Item") as! ItemCatViewController
-        vc.modalPresentationStyle = .overFullScreen
-        vc.passLblData = Lbldata ?? ""
-        vc.passId = Iddata ?? 0
-        present(vc, animated : true)
-  
-        */
+       
         
     }
-    
-    
-   
      }
-     
 }
 
 

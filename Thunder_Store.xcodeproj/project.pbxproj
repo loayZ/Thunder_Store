@@ -28,6 +28,7 @@
 		C63316DD297454F600EC5877 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C63316DB297454F600EC5877 /* Main.storyboard */; };
 		C63316DF297454FA00EC5877 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C63316DE297454FA00EC5877 /* Assets.xcassets */; };
 		C63316E2297454FA00EC5877 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C63316E0297454FA00EC5877 /* LaunchScreen.storyboard */; };
+		C63F8978298947FF00E4467E /* APIproductCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C63F8977298947FF00E4467E /* APIproductCat.swift */; };
 		C657B6C22981E779002FEE17 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C657B6C12981E779002FEE17 /* NotificationViewController.swift */; };
 		C689B557298422ED002F0DFF /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C689B556298422EC002F0DFF /* CustomTableViewCell.swift */; };
 		C68B01FF2976F8E3002B3533 /* OnBoardingHand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B01FE2976F8E3002B3533 /* OnBoardingHand.swift */; };
@@ -73,6 +74,7 @@
 		C63316DE297454FA00EC5877 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C63316E1297454FA00EC5877 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C63316E3297454FA00EC5877 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C63F8977298947FF00E4467E /* APIproductCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIproductCat.swift; sourceTree = "<group>"; };
 		C657B6C12981E779002FEE17 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		C689B556298422EC002F0DFF /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C68B01FE2976F8E3002B3533 /* OnBoardingHand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingHand.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				C63316DB297454F600EC5877 /* Main.storyboard */,
 				C6DE307B298517CC003ED43D /* APIRequest.swift */,
 				C61582822987D5290006678C /* APIItems.swift */,
+				C63F8977298947FF00E4467E /* APIproductCat.swift */,
 				C63316DE297454FA00EC5877 /* Assets.xcassets */,
 				C63316E0297454FA00EC5877 /* LaunchScreen.storyboard */,
 				C63316E3297454FA00EC5877 /* Info.plist */,
@@ -399,6 +402,7 @@
 				C63316DA297454F600EC5877 /* ViewController.swift in Sources */,
 				C6245B152976E7050025F87E /* HomeViewController.swift in Sources */,
 				C68B45CE2983241A00D00901 /* APIRequestFetcher.swift in Sources */,
+				C63F8978298947FF00E4467E /* APIproductCat.swift in Sources */,
 				C6DE307C298517CC003ED43D /* APIRequest.swift in Sources */,
 				C63316D6297454F600EC5877 /* AppDelegate.swift in Sources */,
 				C6245B142976E7050025F87E /* HomeCatCollectionViewCell.swift in Sources */,
