@@ -24,7 +24,7 @@ class NewItemsCollectionViewCell: UICollectionViewCell {
     print(productimg.img1)
     }
     func setup(with products: Product) {
-        ItemImg.image =  #imageLiteral(resourceName: "icons8-list-view-30 ")
+        ItemImg.image =  #imageLiteral(resourceName: "Logo")
         ItemLbl.text = products.title
         var convertString : String = String(products.price ?? 0)
         ItemPrice.text = convertString

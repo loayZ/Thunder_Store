@@ -92,7 +92,7 @@ func fetchNews ()
     func fetchTopSelling ()
         {
           
-            let urlString = "https://dummyjson.com/products?limit=20&skip=20&select=title,price"
+            let urlString = "https://dummyjson.com/products?limit=10&skip=20&select=title,price"
         let url=URL(string : urlString)
 
         let urlSession=URLSession(configuration: .default)

@@ -79,6 +79,25 @@ struct Product3 : Decodable{
     
 }
 
+struct Topsellingproduct : Decodable {
+
+     
+      let total    : Int?
+      let limit    : Int?
+      let skip     : Int?
+      let products : [Product4]
+    
+}
+
+struct Product4 : Decodable{
+    
+    
+      let id    : Int?
+      let title : String?
+      let price : Int?
+     // let images : [String]?
+    
+}
 
 
 

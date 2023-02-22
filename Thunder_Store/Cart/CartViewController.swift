@@ -9,6 +9,8 @@ import UIKit
 
 class CartViewController: UIViewController {
 
+    var myproducts=[Products5(id: 0, title: "", price: 0)]
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var FavButt: UIButton!
@@ -76,3 +78,5 @@ extension CartViewController : UICollectionViewDelegate{
         print(carts[indexPath.row].title)
     }
 }
+
+

@@ -21,6 +21,9 @@ class ItemViewController: UIViewController {
     
     @IBOutlet weak var backButt: UIButton!
     
+    @IBAction func BackButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
     
     @IBOutlet weak var titleLbl: UILabel!
     
@@ -87,10 +90,18 @@ extension ItemViewController : ItemdataDelegate {
        // print(item.images?[0])
         
         //titleLbl.text = item.images[]
-        titleLbl.text = item.title
-        var convertString : String = String(item.price ?? 0)
-        priceLbl.text = convertString
-        descriptionTxtV.text = item.description
+        
+//        titleLbl.text = item.title
+//        var convertString : String = String(item.price ?? 0)
+//        priceLbl.text = convertString
+//        descriptionTxtV.text = item.description
+        
+        DispatchQueue.main.async{
+            self.titleLbl.text = item.title
+            var convertString : String = String(item.price ?? 0)
+            self.priceLbl.text = convertString
+            self.descriptionTxtV.text = item.description
+        }
     
         }
     

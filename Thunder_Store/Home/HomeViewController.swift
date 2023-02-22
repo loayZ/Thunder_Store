@@ -14,6 +14,7 @@ class HomeViewController: UIViewController{
         return .portrait
     }
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     // MARK: API
     var articles=[Article(title:"",description:"")]
     var products=[Product(id: 0, title: "", price: 0)]
@@ -36,9 +37,21 @@ class HomeViewController: UIViewController{
     
     //MARK: Buttons
     
+    
+    @IBAction func SearchButton(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "Search") as! SearchResultsTableViewController
+        vc.modalPresentationStyle = .popover
+        present(vc , animated: true)
+        
+    }
+    
     @IBAction func NewViewAll(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Item") as! ItemCatViewController
+        vc.viewAllTapped = true
         vc.modalPresentationStyle = .currentContext
         present(vc, animated : true)
     }
@@ -46,6 +59,7 @@ class HomeViewController: UIViewController{
     @IBAction func TopSellViewAll(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "Item") as! ItemCatViewController
+        vc.viewAllTapped2 = true
         vc.modalPresentationStyle = .currentContext
         present(vc, animated : true)
     }
@@ -62,6 +76,7 @@ class HomeViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicator.startAnimating()
         
         //MARK: upper icons
       notification.setTitle("", for: .normal)
@@ -92,6 +107,8 @@ class HomeViewController: UIViewController{
         newsAPI.fetchNewItems()
         newsAPI.fetchTopSelling()
         
+        
+        activityIndicator.hidesWhenStopped = true
           }
    
     
@@ -178,7 +195,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
             return CGSize(width: availableWidth, height: 120)
         }
         else{
-            return CGSize(width: 182, height: 220)
+            return CGSize(width: 182, height: 200)
         }
     }
 }
@@ -209,7 +226,7 @@ func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPat
         
         var Lbldata = products[indexPath.row].title
         var Iddata = products[indexPath.row].id
-        print(homecats[indexPath.row].title)
+        //print(homecats[indexPath.row].title)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(identifier: "ItemViewController") as! ItemViewController
@@ -233,7 +250,7 @@ extension HomeViewController:NewsAPIDelegate{
         
         products=homeCategories.products
         DispatchQueue.main.async{
-           // self.ItemcollectionView.reloadData()
+            self.ItemcollectionView.reloadData()
         }
        // ItemcollectionView.reloadData()
     }
@@ -243,7 +260,7 @@ extension HomeViewController:NewsAPIDelegate{
         
         myproducts=topSelling.products
         DispatchQueue.main.async{
-            //self.topsellingCollectionView.reloadData()
+            self.topsellingCollectionView.reloadData()
         }
         //topsellingCollectionView.reloadData()
     }
@@ -254,7 +271,7 @@ extension HomeViewController:NewsAPIDelegate{
         
         articles=posts.products
         DispatchQueue.main.async{
-           // self.collectionView.reloadData()
+            self.collectionView.reloadData()
         }
       //  collectionView.reloadData()
         

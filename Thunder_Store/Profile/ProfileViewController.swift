@@ -51,7 +51,7 @@ extension ProfileViewController : UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(profileLinkItems[indexPath.row].title)
-        if (profileLinkItems[indexPath.row].title == "SignOut"){
+        if (profileLinkItems[indexPath.row].title == "Signout"){
             
             print("Im here!")
             do {try Auth.auth().signOut()

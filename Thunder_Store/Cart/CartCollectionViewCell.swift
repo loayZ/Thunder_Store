@@ -28,4 +28,15 @@ class CartCollectionViewCell: UICollectionViewCell {
         itemLbl.text = carts.title
         itemPrice.text = carts.price
     }
+    
+    func setup(with products : Products5){
+        
+       itemImg.image = UIImage(named: "AppIcon")
+        itemLbl.text = products.title
+        var convertString : String = String(products.price ?? 0)
+        itemPrice.text = convertString
+        
+    }
+    
+    
 }

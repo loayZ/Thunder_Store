@@ -35,6 +35,15 @@ class LoginViewController: UIViewController {
       
     }
     
+    @IBAction func skipButton(_ sender: UIButton) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "Home")
+        vc.modalPresentationStyle = .overFullScreen
+        present(vc, animated : true)
+        
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         checkUserInfo()
     }

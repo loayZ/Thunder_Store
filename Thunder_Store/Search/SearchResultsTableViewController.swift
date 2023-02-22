@@ -18,6 +18,7 @@ class SearchResultsTableViewController: UITableViewController {
         }
     }
     
+    private let BackButton = UIButton()
     private let searchController = UISearchController(searchResultsController: nil)
     private let apiFetcher = APIRequestFetcher()
     private var previousRun = Date()
@@ -30,11 +31,16 @@ class SearchResultsTableViewController: UITableViewController {
         setupSearchBar()
     }
     
+    private func setupBackButton(){
+        
+        
+    }
+    
     private func setupTableViewBackgroundView() {
         let backgroundViewLabel = UILabel(frame: .zero)
         backgroundViewLabel.textColor = .darkGray
         backgroundViewLabel.numberOfLines = 0
-        backgroundViewLabel.text = " Oops, No results to show "
+        backgroundViewLabel.text = "No results to show "
         backgroundViewLabel.textAlignment = NSTextAlignment.center
         backgroundViewLabel.font.withSize(20)
         tableView.backgroundView = backgroundViewLabel
@@ -44,7 +50,7 @@ class SearchResultsTableViewController: UITableViewController {
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.placeholder = "Search any Topic"
+        searchController.searchBar.placeholder = "Search..."
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
     }

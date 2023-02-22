@@ -26,7 +26,7 @@ class TopSellingCollectionViewCell: UICollectionViewCell {
     }
     
     func setup(with products: Product2) {
-        ItemImg.image =  #imageLiteral(resourceName: "icons8-shopping-cart-30")
+        ItemImg.image =  #imageLiteral(resourceName: "Logo")
         ItemLbl.text = products.title
         var convertString : String = String(products.price ?? 0)
         ItemPrice.text = convertString
